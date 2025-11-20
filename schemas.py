@@ -41,6 +41,14 @@ class Product(BaseModel):
 # Add your own schemas here:
 # --------------------------------------------------
 
+class Idea(BaseModel):
+    """
+    Simple ideas collection
+    Collection name: "idea"
+    """
+    title: str = Field(..., min_length=1, max_length=120, description="Short title for the idea")
+    details: Optional[str] = Field(None, max_length=2000, description="Optional details or notes")
+
 # Note: The Flames database viewer will automatically:
 # 1. Read these schemas from GET /schema endpoint
 # 2. Use them for document validation when creating/editing
